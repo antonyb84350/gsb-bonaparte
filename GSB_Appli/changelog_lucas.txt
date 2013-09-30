@@ -1,0 +1,8 @@
+﻿Changelog de Lucas
+
+1.01 - 30/09/2013
+
+- Modification de la table Visiteur en table Membre
+- Ajout de 'idrole' dans la table Membre
+- Création de la table Role
+- Modification du script de génération
