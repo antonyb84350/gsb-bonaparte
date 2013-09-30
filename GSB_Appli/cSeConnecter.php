@@ -8,6 +8,11 @@
 $repInclude = './include/';
 require($repInclude . "_init.inc.php"); 
 
+if ( estMembreConnecte() ) 
+{
+     header("Location: cAccueil.php");
+}
+  
 // est-on au 1er appel du programme ou non ?
 $etape = (count($_POST) != 0) ? 'validerConnexion' : 'demanderConnexion';
 
