@@ -1,8 +1,9 @@
 <?php
+date_default_timezone_set('Europe/Paris');
 
 function getLesMembres($pdo)
 {
-		$req = "select * from membre";
+		$req = "select * from membre where idrole = 1";
 		$res = $pdo->query($req);
 		$lesLignes = $res->fetchAll();
 		return $lesLignes;

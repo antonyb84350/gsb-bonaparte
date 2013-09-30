@@ -7,8 +7,8 @@ include("include/fct.inc.php");
 
 $serveur='mysql:host=localhost';
 $bdd='dbname=gsb_frais';   		
-$user='root' ;    		
-$mdp='localhost' ;	
+$user='userGsb' ;    		
+$mdp='secret' ;	
 
 /* fin paramètres*/
 
