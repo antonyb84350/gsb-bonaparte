@@ -7,8 +7,8 @@
   $repInclude = './include/';
   require($repInclude . "_init.inc.php");
 
-  // page inaccessible si visiteur non connecté
-  if (!estVisiteurConnecte()) {
+  // page inaccessible si membre non connecté
+  if (!estMembreConnecte()) {
       header("Location: cSeConnecter.php");  
   }
   require($repInclude . "_entete.inc.html");
@@ -81,7 +81,7 @@
             </legend>
       <?php          
             // demande de la requête pour obtenir la liste des éléments 
-            // forfaitisés du visiteur connecté pour le mois demandé
+            // forfaitisés du membre connecté pour le mois demandé
             $idJeuEltsFraisForfait = $pdo->getLesFraisForfait(obtenirIdUserConnecte(), $mois);
             foreach ( $idJeuEltsFraisForfait as $lgEltForfait ) {
                 $idFraisForfait = $lgEltForfait["idFrais"];
@@ -121,10 +121,10 @@
              </tr>
 <?php          
           // demande de la requête pour obtenir la liste des éléments hors
-          // forfait du visiteur connecté pour le mois demandé
+          // forfait du membre connecté pour le mois demandé
           $idJeuEltsHorsForfait = $pdo->getLesFraisHorsForfait(obtenirIdUserConnecte(), $mois);
           
-          // parcours des frais hors forfait du visiteur connecté
+          // parcours des frais hors forfait du membre connecté
           foreach ( $idJeuEltsHorsForfait as $lgEltHorsForfait ) {
           ?>
               <tr>

@@ -10,31 +10,37 @@
     <div id="menuGauche">
      <div id="infosUtil">
     <?php      
-      if (estVisiteurConnecte() ) {
+    
+      if (estMembreConnecte() ) {
           $idUser = obtenirIdUserConnecte() ;
-          $lgUser = $pdo->getInfosVisiteur($idUser);
+          $lgUser = $pdo->getInfosMembre($idUser);
           $nom = $lgUser['nom'];
-          $prenom = $lgUser['prenom'];            
+          $prenom = $lgUser['prenom']; 
+           
+          if($lgUser['idrole'] == 1)
+          { $role = 'Visiteur'; }
+          elseif($lgUser['idrole'] == 2)
+          { $role = 'Comptable'; }
+          
     ?>
         <h2>
     <?php  
             echo $nom . " " . $prenom ;
     ?>
         </h2>
-        <h3>Visiteur médical</h3>        
+         
+         
+         <h3> Type: <?php echo $role; ?></h3>        
     <?php
        }
     ?>  
       </div>  
 <?php      
-  if (estVisiteurConnecte() ) {
+  if (estMembreConnecte() ) {
 ?>
         <ul id="menuList">
            <li class="smenu">
               <a href="cAccueil.php" title="Page d'accueil">Accueil</a>
-           </li>
-           <li class="smenu">
-              <a href="cSeDeconnecter.php" title="Se déconnecter">Se déconnecter</a>
            </li>
            <li class="smenu">
               <a href="cSaisieFicheFrais.php" title="Saisie fiche de frais du mois courant">Saisie fiche de frais</a>
@@ -42,6 +48,19 @@
            <li class="smenu">
               <a href="cConsultFichesFrais.php" title="Consultation de mes fiches de frais">Mes fiches de frais</a>
            </li>
+           <?php      
+           if ($lgUser['idrole'] == 2) {
+           ?>
+           <li class="smenu">
+              <a href="ZZZZZZ.php" title="Valider les frais" style="color:green;">Valider les frais</a>
+           </li>
+           <?php      
+           }
+           ?>
+           <li class="smenu">
+              <a href="cSeDeconnecter.php" title="Se déconnecter" style="color:red;">Se déconnecter</a>
+           </li>
+           
          </ul>
         <?php
           // affichage des éventuelles erreurs déjà détectées

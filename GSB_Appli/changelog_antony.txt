@@ -1,0 +1,6 @@
+-- Changelog de Antony -- 
+
+-- 1.01 :: 30/09/2013 --
+- Refactorisation de estUnVisiteur en estUnMembre.
+- Ajout du paramètre "idrole" dans la fonction: affecterInfosConnecte
+- Modification du sommaire pour l'affichage du type de compte et du lien pour "valider les frais" pour les compatables.

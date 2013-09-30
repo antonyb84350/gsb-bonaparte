@@ -16,7 +16,7 @@ $tabErreurs = array();
 // Demande-t-on une déconnexion ?
 $demandeDeconnexion = lireDonneeUrl("cmdDeconnecter");
 if ($demandeDeconnexion == "on") {
-    deconnecterVisiteur();
+    deconnectermembre();
     header("Location: cAccueil.php");
 }
 

@@ -7,8 +7,8 @@
   $repInclude = './include/';
   require($repInclude . "_init.inc.php");
 
-  // page inaccessible si visiteur non connecté
-  if ( ! estVisiteurConnecte() ) {
+  // page inaccessible si membre non connecté
+  if ( ! estMembreConnecte() ) {
       header("Location: cSeConnecter.php");  
   }
   require($repInclude . "_entete.inc.html");
@@ -47,7 +47,7 @@
         <label for="lstMois">Mois : </label>
         <select id="lstMois" name="lstMois" title="Sélectionnez le mois souhaité pour la fiche de frais">
             <?php
-                // on propose tous les mois pour lesquels le visiteur a une fiche de frais
+                // on propose tous les mois pour lesquels le membre a une fiche de frais
                 $idJeuMois = $pdo->getLesMoisDisponibles(obtenirIdUserConnecte());
                 foreach ( $idJeuMois as $lgMois ) {
                     $mois = $lgMois["mois"];
@@ -89,7 +89,7 @@
     </p>
 <?php          
             // demande de la requête pour obtenir la liste des éléments 
-            // forfaitisés du visiteur connecté pour le mois demandé
+            // forfaitisés du membre connecté pour le mois demandé
             $idJeuEltsFraisForfait = $pdo->getLesFraisForfait(obtenirIdUserConnecte(),$moisSaisi);
             foreach ( $idJeuEltsFraisForfait as $lgEltForfait ) {
                 $tabEltsFraisForfait[$lgEltForfait["libelle"]] = $lgEltForfait["quantite"];
@@ -99,7 +99,7 @@
   	   <caption>Quantités des éléments forfaitisés</caption>
         <tr>
             <?php
-            // premier parcours du tableau des frais forfaitisés du visiteur connecté
+            // premier parcours du tableau des frais forfaitisés du membre connecté
             // pour afficher la ligne des libellés des frais forfaitisés
             foreach ( $tabEltsFraisForfait as $unLibelle => $uneQuantite ) {
             ?>
@@ -110,7 +110,7 @@
         </tr>
         <tr>
             <?php
-            // second parcours du tableau des frais forfaitisés du visiteur connecté
+            // second parcours du tableau des frais forfaitisés du membre connecté
             // pour afficher la ligne des quantités des frais forfaitisés
             foreach ( $tabEltsFraisForfait as $unLibelle => $uneQuantite ) {
             ?>
@@ -130,7 +130,7 @@
              </tr>
 <?php          
             // demande de la requête pour obtenir la liste des éléments hors
-            // forfait du visiteur connecté pour le mois demandé
+            // forfait du membre connecté pour le mois demandé
             $idJeuEltsHorsForfait = $pdo->getLesFraisHorsForfait(obtenirIdUserConnecte(),$moisSaisi);
             foreach ( $idJeuEltsHorsForfait as $lgEltHorsForfait ) {
             ?>

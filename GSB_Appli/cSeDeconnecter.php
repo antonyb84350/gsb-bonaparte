@@ -7,7 +7,7 @@
   $repInclude = './include/';
   require($repInclude . "_init.inc.php");
   
-  deconnecterVisiteur() ;  
+  deconnectermembre() ;  
   header("Location:cSeConnecter.php");
   
 ?>

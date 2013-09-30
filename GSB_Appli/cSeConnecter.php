@@ -4,20 +4,23 @@
  * @package default
  * @todo  RAS
  */
+
 $repInclude = './include/';
-require($repInclude . "_init.inc.php");
+require($repInclude . "_init.inc.php"); 
 
 // est-on au 1er appel du programme ou non ?
 $etape = (count($_POST) != 0) ? 'validerConnexion' : 'demanderConnexion';
 
 if ($etape == 'validerConnexion') { // un client demande à s'authentifier
+    
     // acquisition des données envoyées, ici login et mot de passe
     $login = lireDonneePost("txtLogin");
     $mdp = lireDonneePost("txtMdp");
-    $lgUser = $pdo->estUnVisiteur($login, $mdp);
+    $lgUser = $pdo->estUnMembre($login, $mdp);
+
     // si l'id utilisateur a été trouvé, donc informations fournies sous forme de tableau
     if (is_array($lgUser)) {
-        affecterInfosConnecte($lgUser["id"], $lgUser["login"]);
+        affecterInfosConnecte($lgUser["id"], $lgUser["login"], $lgUser["idrole"]);
     } else {
         ajouterErreur($tabErreurs, "Pseudo et/ou mot de passe incorrects");
     }
@@ -29,7 +32,9 @@ if ($etape == "validerConnexion" && nbErreurs($tabErreurs) == 0) {
 require($repInclude . "_entete.inc.html");
 require($repInclude . "_sommaire.inc.php");
 ?>
+
 <!-- Division pour le contenu principal -->
+
 <div id="contenu">
     <h2>Identification utilisateur</h2>
 <?php
@@ -38,7 +43,8 @@ if ($etape == "validerConnexion") {
         echo toStringErreurs($tabErreurs);
     }
 }
-?>               
+?>      
+    
     <form id="frmConnexion" action="" method="post">
         <div class="corpsForm">
             <input type="hidden" name="etape" id="etape" value="validerConnexion" />
@@ -58,6 +64,7 @@ if ($etape == "validerConnexion") {
             </p> 
         </div>
     </form>
+    
 </div>
 <?php
 require($repInclude . "_pied.inc.html");
