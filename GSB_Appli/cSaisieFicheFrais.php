@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Europe/Paris');
+
 /** 
  * Script de contrôle et d'affichage du cas d'utilisation "Saisir fiche de frais"
  * @package default
