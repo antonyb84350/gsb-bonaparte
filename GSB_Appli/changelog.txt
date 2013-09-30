@@ -1,0 +1,10 @@
+-- 1.01 -- 23/09/2013
++ Création de la table "comptable" dans la bdd: gdb_frais
++ Refactorisation de la fontion: "estUnVisiteur" en "estQuelTypeDeCompte".
+
+
+-- 1.02 -- 27/09/2013
++ Redirection sur la page: sAccueil.php depuis sConnecter.php.
++ Initialisation de la variable $tabErreurs à NULL.
++ Controle sur la page de connexion pour ne pas y accéder en tant que connecté (client / comptable)
++ Refactorisation de la fontion: "estVisiteurConnecte" en "estPersonneConnecte".
