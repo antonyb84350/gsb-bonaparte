@@ -72,7 +72,6 @@ class PdoGsb{
 		where membre.login='$login' and membre.mdp='$mdp'";
 		$rs = PdoGsb::$monPdo->query($req);
 		$ligne = $rs->fetch();
-                echo $req;
 		return $ligne;
 	}
         
