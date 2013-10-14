@@ -60,6 +60,15 @@
            <?php      
            }
            ?>
+           <?php      
+           if ($lgUser['idrole'] == 1) {
+           ?>
+           <li class="smenu">
+              <a href="formSaisieFrais.htm" title="Gérer les frais" style="color:green;">Gérer les frais</a>
+           </li>
+           <?php      
+           }
+           ?>
            <li class="smenu">
               <a href="cSeDeconnecter.php" title="Se déconnecter" style="color:red;">Se déconnecter</a>
            </li>
