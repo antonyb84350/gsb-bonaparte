@@ -52,7 +52,10 @@
            if ($lgUser['idrole'] == 2) {
            ?>
            <li class="smenu">
-              <a href="ZZZZZZ.php" title="Valider les frais" style="color:green;">Valider les frais</a>
+              <a href="ValidFrais.php" title="Valider les frais" style="color:green;">Valider les frais</a>
+           </li>
+           <li class="smenu">
+              <a href="SaisieFrais.php" title="Saisie de frais" style="color:green;">Saisie de frais</a>
            </li>
            <?php      
            }
