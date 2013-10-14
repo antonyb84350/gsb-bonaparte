@@ -55,7 +55,7 @@
               <a href="ValidFrais.php" title="Valider les frais" style="color:green;">Valider les frais</a>
            </li>
            <li class="smenu">
-              <a href="SaisieFrais.php" title="Saisie de frais" style="color:green;">Saisie de frais</a>
+              <a href="cSuiviPaiementFicheFrais.php" title="Suivi paiement des fiches de frais" style="color:green;">Suivi paiement des fiches de frais</a>
            </li>
            <?php      
            }
