@@ -25,6 +25,21 @@ function obtenirLibelleMois($unNoMois) {
 }
 
 /** 
+ * Fournit le libellé en français correspondant à un numéro de mois.                     
+ *
+ * Fournit le libellé français du mois de numéro $unNoMois.
+ * Retourne une chaîne vide si le numéro n'est pas compris dans l'intervalle [1,12].
+ * @param int numéro de mois
+ * @return string identifiant de connexion
+ */
+function obtenirMembre() {
+                $req = "select id, nom, prenom from membre";
+		$res = PdoGsb::$monPdo->query($req);
+		$laLigne = $res->fetchAll();
+		return $laLigne;
+}
+
+/** 
  * Vérifie si une chaîne fournie est bien une date valide, au format JJ/MM/AAAA.                     
  * 
  * Retrourne true si la chaîne $date est une date valide, au format JJ/MM/AAAA, false sinon.
